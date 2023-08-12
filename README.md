@@ -1,4 +1,5 @@
 # AirBnB clone - The console
+## Description
 Contained within this repository is a collective project, an emulation of AirBnB, developed for the ALX SE programme.
 The primary goal is to construct a replica of the well-known AirBnB website.
 The initial step involves designing the foundational classes for data modeling,
