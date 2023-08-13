@@ -1,22 +1,18 @@
 #!/usr/bin/pyhon3
-""" module to define the base class"""
-
+""" Base class for modelling subclasses"""
 from uuid import uuid4
 from datetime import datetime
 from models import storage
 
 
 class BaseModel:
-    """Base class of the project"""
-
+    """Base class for modelling subclasses"""
     def __init__(self, *args, **kwargs):
-        """function to initialize new instance"""
-
+        """Initialization of the base model"""
         if kwargs:
             for key, value in kwargs.items():
                 if key == "created_at" or key == "updated_at":
-                    setattr(self, key, datetime.strptime(value,
-                                                         "%Y-%m-%dT%H:%M:%S.%f"))
+                    setattr(self, key, datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f"))
                 elif key != "__class__":
                     setattr(self, key, value)
         else:
