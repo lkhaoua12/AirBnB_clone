@@ -1,13 +1,17 @@
 #!/usr/bin/pyhon3
-""" Base class for modelling subclasses"""
+""" this module define the Base class"""
+
+
 from uuid import uuid4
 from datetime import datetime
 
 
 class BaseModel:
-    """Base class for modelling subclasses"""
+    """Base class of the project"""
+
     def __init__(self, *args, **kwargs):
-        """Initialization of the base model"""
+        """this function initialize new instances"""
+
         if kwargs:
             for key, value in kwargs.items():
                 if key == "created_at" or key == "updated_at":
@@ -20,16 +24,19 @@ class BaseModel:
             self.updated_at = datetime.now()
 
     def __str__(self):
-        """Returns the string representation of the base model"""
+        """returns the string representation of the class"""
+
         return "[{}] ({}) {}".format(self.__class__.__name__, self.id,
                                      self.__dict__)
 
     def save(self):
-        """Updates the public instance attribute updated_at"""
+        """updates the public instance attribute updated_at"""
+
         self.updated_at = datetime.now()
 
     def to_dict(self):
-        """Returns a dictionary containing all keys/values of __dict__"""
+        """returns a dictionary containing all keys/values of __dict__"""
+
         new_dict = self.__dict__.copy()
         new_dict["__class__"] = self.__class__.__name__
         new_dict["created_at"] = self.created_at.isoformat()
