@@ -1,4 +1,4 @@
-!#/usr/bin/python3
+#!/usr/bin/python3
 """this module define the file_engine class"""
 
 
@@ -26,7 +26,7 @@ class FileStorage:
 
         dic = {}
         for key, obj in FileStorage.__objects.items():
-            dic[key] = obj.to_dic()
+            dic[key] = obj.to_dict()
 
         with open(FileStorage.__file_path, "w") as f:
             json.dump(dic, f)
