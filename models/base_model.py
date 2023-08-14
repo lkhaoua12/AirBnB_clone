@@ -45,3 +45,7 @@ class BaseModel:
         new_dict["created_at"] = self.created_at.isoformat()
         new_dict["updated_at"] = self.updated_at.isoformat()
         return new_dict
+
+    def delete(self):
+        """Deletes the current instance from the storage"""
+        storage.delete(self)
