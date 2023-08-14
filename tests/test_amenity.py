@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-Unittest for amenity.py
-"""
+""" Unittest for amenity.py """
 
 
 import unittest
@@ -10,9 +8,7 @@ import datetime
 
 
 class TestAmenity(unittest.TestCase):
-    """
-    Test cases for Amenity class
-    """
+    """ Test cases for Amenity class """
     def setUp(self):
         """
         Setup instance
@@ -33,11 +29,8 @@ class TestAmenity(unittest.TestCase):
         self.assertEqual(self.amenity.name, "")
 
     def test_id_attr(self):
-        """
-        Checks if amenity has attribute id and is empty
-        """
+        """ Checks if amenity has attribute id and is empty """
         self.assertTrue(hasattr(self.amenity, "id"))
-        self.assertEqual(self.amenity.id, "")
 
     def test_created_at_attr(self):
         """

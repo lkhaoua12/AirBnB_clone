@@ -35,15 +35,22 @@ class FileStorage:
         """ Deserializes a JSON file """
 
         from models.base_model import BaseModel
+        from models.user import User
+        from models.place import Place
+        from models.city import City
+        from models.amenity import Amenity
+        from models.state import State
+        from models.review import Review
 
-        doct = {'BaseModel': BaseModel,
-               }
+        dct = {'BaseModel': BaseModel, 'User': User, 'Place': Place,
+               'City': City, 'Amenity': Amenity, 'State': State,
+               'Review': Review}
         try:
             with open(FileStorage.__file_path, 'r') as file:
                 serialized_objects = json.load(file)
                 for key, obj_dict in serialized_objects.items():
                     class_name = obj_dict['__class__']
-                    obj = doct[class_name](**obj_dict)
+                    obj = dct[class_name](**obj_dict)
                     FileStorage.__objects[key] = obj
         except FileNotFoundError:
             pass
